@@ -13,6 +13,7 @@ var CoupangHMAC = function(){
 		var SECRET_KEY = this.getEnvValueByName(context,'SECRET_KEY');
 		var AUTH_TYPE = 'CEA algorithm=HmacSHA256';
 		var timestamp = new Date().toISOString().split('.')[0]+"Z";
+		timestamp = timestamp.replace(/:/gi, "").replace(/-/gi, "").substring(2);
 	
 		var request = context.getCurrentRequest();
 		var method = request.method;
